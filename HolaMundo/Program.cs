@@ -5,6 +5,7 @@ bool edadInvalida = true;
 
 Console.WriteLine("Introduce tu nombre, por favor:");
 nombre = Console.ReadLine();
+// Control de errores en el dato de edad, solo se permite un entero, nada de decimales o letras.
 while (edadInvalida)
 {
     try
@@ -12,9 +13,9 @@ while (edadInvalida)
         string edad;
         Console.WriteLine("Introduce tu edad, por favor:");
         edad = Console.ReadLine();
-        edadInt = Convert.ToInt32(edad);
-        
-        edadInvalida = false;
+        edadInt = Convert.ToInt32(edad); // Convertimos la entrada de texto en entero para poder operar con él.
+
+        edadInvalida = false; // Si el dato es correcto, seguimos ejecutando el programa.
     } 
     catch (FormatException e)
     {
@@ -22,8 +23,8 @@ while (edadInvalida)
     }
 }
 
-int cien = 100 - edadInt;
-int añoCien = añoActual + cien;
+int cien = 100 - edadInt; // Hacemos el cálculo inicial para restar la edad.
+int añoCien = añoActual + cien; // Usando el resultado anterior, sacamos cuando se cumplen los 100.
 
 Console.WriteLine("¡Hola, " + nombre + "!");
 Console.WriteLine("Asi que tienes " + edadInt);
